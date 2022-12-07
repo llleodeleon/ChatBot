@@ -11,15 +11,15 @@ class ChatNotifier extends ChangeNotifier {
   final _noDelay = const Duration(milliseconds: 0);
   GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
 
-  List<ChatMessage> get messages => _manager.messages.reversed.toList();
+  List<ChatMessage> get messages => _manager.messages;
   String? whoIsTyping;
 
   void loadData(String id) async {
     final messages = await _repository.getChatMessages(id);
     _manager.init(messages);
 
-    for (var i = 0 ; i < messages.length; i++) {
-      listKey.currentState!.insertItem(i, duration: _noDelay);
+    for (var m in messages) {
+      listKey.currentState!.insertItem(0, duration: _noDelay);
     };
 
     notifyListeners();

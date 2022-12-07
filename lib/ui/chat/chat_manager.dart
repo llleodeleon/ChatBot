@@ -10,10 +10,10 @@ class ChatManager {
 
   ChatManager({required this.sender});
 
-  List<ChatMessage> get messages => _messages;
+  List<ChatMessage> get messages => _messages.reversed.toList();
 
   void init(List<ChatMessage> currentMessages) {
-    _messages = currentMessages;
+    _messages = currentMessages.reversed.toList();
     _senders = currentMessages.map((e) => e.sender).toList();
   }
 
@@ -43,7 +43,7 @@ class ChatManager {
 
   void sendRandomMessage(String sender) {
     final random = Random();
-    final message = lorem(words: random.nextInt(29) + 1);
+    final message = lorem(paragraphs: 1, words: random.nextInt(29) + 1);
     final newMessage = ChatMessage(
         id: _nextId(),
         message: message,

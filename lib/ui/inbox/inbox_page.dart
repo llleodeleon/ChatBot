@@ -10,26 +10,31 @@ class InboxPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<InboxNotifier>().loadData();
-    return Scaffold(
-      body: SafeArea(
-        child: Consumer<InboxNotifier>(
-          builder: (_, notifier, child) {
-            return Center(
-              child: Column(
-                children: [
-                  Text('${notifier.chats.length}'),
-                  MaterialButton(
-                      onPressed: () => Navigator.pushNamed(
-                        context,
-                        ChatPage.route,
-                        arguments: '9991',
-                      ),
-                      child: const Text('Next')),
-                ],
-              ),
-            );
-          },
+    final notifier = InboxNotifier();
+    notifier.loadData();
+
+    return ChangeNotifierProvider(
+      create: (_) => notifier,
+      child: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Consumer<InboxNotifier>(
+              builder: (context, notifier, child) {
+                return Column(
+                  children: [
+                    Text('${notifier.chats.length}'),
+                    MaterialButton(
+                        onPressed: () => Navigator.pushNamed(
+                          context,
+                          ChatPage.route,
+                          arguments: '9991',
+                        ),
+                        child: const Text('Next')),
+                  ],
+                );
+              },
+            ),
+          ),
         ),
       ),
     );

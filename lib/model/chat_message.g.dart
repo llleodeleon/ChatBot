@@ -7,10 +7,10 @@ part of 'chat_message.dart';
 // **************************************************************************
 
 ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => ChatMessage(
-      json['id'] as String,
-      json['message'] as String,
-      DateUtils.millisToDate(json['modified_at'] as int),
-      json['sender'] as String,
+      id: json['id'] as String,
+      message: json['message'] as String,
+      modifiedAt: DateUtils.millisToDate(json['modified_at'] as int),
+      sender: json['sender'] as String,
     );
 
 Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>

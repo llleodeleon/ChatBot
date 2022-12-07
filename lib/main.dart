@@ -1,18 +1,11 @@
-import 'package:chatbot/ui/chat/chat_notifier.dart';
 import 'package:chatbot/ui/chat/chat_page.dart';
-import 'package:chatbot/ui/inbox/inbox_notifier.dart';
 import 'package:chatbot/ui/inbox/inbox_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => InboxNotifier()),
-      ChangeNotifierProvider(create: (_) => ChatNotifier()),
-    ],
-    child: const MyApp(),
-  ));
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {

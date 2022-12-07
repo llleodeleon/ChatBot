@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_message.g.dart';
 
-
 @JsonSerializable()
 class ChatMessage {
   final String id;
@@ -12,7 +11,7 @@ class ChatMessage {
   final DateTime modifiedAt;
   final String sender;
 
-  ChatMessage(this.id, this.message, this.modifiedAt, this.sender);
+  ChatMessage({required this.id, required this.message, required this.modifiedAt, required this.sender});
   factory ChatMessage.fromJson(Map<String, dynamic> json) => _$ChatMessageFromJson(json);
   Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 }

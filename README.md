@@ -1,11 +1,12 @@
 # chatbot
 
-A chat bot project.
+A FLutter chat bot.
 
 ## Requirements 
 
 Execute the following commands in order to build the project
 
 `flutter pub run build_runner build`
+
 `flutter pub get`
 

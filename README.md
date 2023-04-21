@@ -1,6 +1,6 @@
 # chatbot
 
-A FLutter chat bot.
+A Flutter chat bot.
 
 ## Requirements 
 
